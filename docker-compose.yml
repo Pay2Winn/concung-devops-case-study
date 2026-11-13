@@ -1,0 +1,43 @@
+services:
+  jenkins:
+    image: jenkins/jenkins:lts-jdk21
+    ports:
+      - "127.0.0.1:8081:8080"
+    volumes:
+      - jenkins-home:/var/jenkins_home
+    restart: unless-stopped
+  agent:
+    build: lab/jenkins/agent
+    # Lab only: Docker socket access gives control over the host Docker daemon.
+    user: root
+    environment:
+      JENKINS_URL: http://jenkins:8080
+      JENKINS_AGENT_NAME: docker-agent
+      JENKINS_SECRET: ${JENKINS_AGENT_SECRET:-}
+      JENKINS_WEB_SOCKET: "true"
+      JENKINS_AGENT_WORKDIR: /home/jenkins/agent
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - agent-work:/home/jenkins/agent
+    networks:
+      - default
+      - lab
+    depends_on:
+      - jenkins
+    profiles: [agent]
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8082:8080"
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+networks:
+  lab:
+    external: true
+    name: kind
+volumes:
+  jenkins-home:
+  agent-work:

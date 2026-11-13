@@ -1,0 +1,170 @@
+Started by user lab-admin
+ > git rev-parse --resolve-git-dir /var/jenkins_home/caches/git-9f0735fdf593b59e8939e8eee52f1ddb/.git # timeout=10
+Setting origin to https://github.com/Pay2Winn/concung-devops-case-study.git
+ > git config remote.origin.url https://github.com/Pay2Winn/concung-devops-case-study.git # timeout=10
+Fetching origin...
+Fetching upstream changes from origin
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git config --get remote.origin.url # timeout=10
+ > git fetch --no-tags --force --progress -- origin +refs/heads/*:refs/remotes/origin/* # timeout=10
+Seen branch in repository origin/main
+Seen 1 remote branch
+Obtained Jenkinsfile from b4996d3031048f4d2f41e57b52a143301cdf18fa
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on docker-agent in /home/jenkins/agent/workspace/lab_case-study_main
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] timeout
+[2026-11-12T08:14:39.153Z] Timeout set to expire in 25 min
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] deleteDir
+[Pipeline] checkout
+[2026-11-12T08:14:39.307Z] Selected Git installation does not exist. Using Default
+[2026-11-12T08:14:39.308Z] The recommended git tool is: NONE
+[2026-11-12T08:14:39.317Z] No credentials specified
+[2026-11-12T08:14:39.326Z] Cloning the remote Git repository
+[2026-11-12T08:14:39.326Z] Cloning with configured refspecs honoured and without tags
+[2026-11-12T08:14:39.329Z] Cloning repository https://github.com/Pay2Winn/concung-devops-case-study.git
+[2026-11-12T08:14:39.330Z]  > git init /home/jenkins/agent/workspace/lab_case-study_main # timeout=10
+[2026-11-12T08:14:39.344Z] Fetching upstream changes from https://github.com/Pay2Winn/concung-devops-case-study.git
+[2026-11-12T08:14:39.344Z]  > git --version # timeout=10
+[2026-11-12T08:14:39.350Z]  > git --version # 'git version 2.47.3'
+[2026-11-12T08:14:39.350Z]  > git fetch --no-tags --force --progress -- https://github.com/Pay2Winn/concung-devops-case-study.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2026-11-12T08:14:40.393Z] Avoid second fetch
+[2026-11-12T08:14:40.394Z] Checking out Revision b4996d3031048f4d2f41e57b52a143301cdf18fa (main)
+[2026-11-12T08:14:40.426Z] Commit message: "chore: organize final DevOps submission"
+[2026-11-12T08:14:40.378Z]  > git config remote.origin.url https://github.com/Pay2Winn/concung-devops-case-study.git # timeout=10
+[2026-11-12T08:14:40.383Z]  > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2026-11-12T08:14:40.395Z]  > git config core.sparsecheckout # timeout=10
+[2026-11-12T08:14:40.400Z]  > git checkout -f b4996d3031048f4d2f41e57b52a143301cdf18fa # timeout=10
+[2026-11-12T08:14:40.431Z]  > git rev-list --no-walk b4996d3031048f4d2f41e57b52a143301cdf18fa # timeout=10
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
+[2026-11-12T08:14:40.824Z] + git rev-parse HEAD
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
+[2026-11-12T08:14:41.362Z] + docker build --pull --platform=linux/amd64 --provenance=false --sbom=false --build-arg REVISION=b4996d3031048f4d2f41e57b52a143301cdf18fa -t concung-2048:b4996d3031048f4d2f41e57b52a143301cdf18fa .
+[2026-11-12T08:14:41.619Z] #0 building with "default" instance using docker driver
+[2026-11-12T08:14:41.619Z] 
+[2026-11-12T08:14:41.619Z] #1 [internal] load build definition from Dockerfile
+[2026-11-12T08:14:41.619Z] #1 transferring dockerfile: 1.20kB done
+[2026-11-12T08:14:41.619Z] #1 DONE 0.0s
+[2026-11-12T08:14:41.619Z] 
+[2026-11-12T08:14:41.619Z] #2 [internal] load metadata for docker.io/library/nginx:stable-alpine@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311
+[2026-11-12T08:14:41.619Z] #2 DONE 0.0s
+[2026-11-12T08:14:41.619Z] 
+[2026-11-12T08:14:41.619Z] #3 [internal] load .dockerignore
+[2026-11-12T08:14:41.619Z] #3 transferring context: 66B done
+[2026-11-12T08:14:41.619Z] #3 DONE 0.0s
+[2026-11-12T08:14:41.619Z] 
+[2026-11-12T08:14:41.619Z] #4 [game 1/1] ADD https://github.com/gabrielecirulli/2048.git#478b6ec346e3787f589e4af751378d06ded4cbbc /game
+[2026-11-12T08:14:41.619Z] #4 DONE 0.0s
+[2026-11-12T08:14:41.619Z] 
+[2026-11-12T08:14:41.619Z] #5 [internal] load build context
+[2026-11-12T08:14:41.619Z] #5 transferring context: 1.01kB done
+[2026-11-12T08:14:41.619Z] #5 DONE 0.0s
+[2026-11-12T08:14:41.619Z] 
+[2026-11-12T08:14:41.619Z] #6 [stage-1 1/6] FROM docker.io/library/nginx:stable-alpine@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311
+[2026-11-12T08:14:41.619Z] #6 resolve docker.io/library/nginx:stable-alpine@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311 0.0s done
+[2026-11-12T08:14:41.619Z] #6 DONE 0.0s
+[2026-11-12T08:14:41.619Z] 
+[2026-11-12T08:14:41.619Z] #7 [stage-1 2/6] COPY --from=game /game/index.html /game/favicon.ico /game/LICENSE.txt /usr/share/nginx/html/
+[2026-11-12T08:14:41.619Z] #7 CACHED
+[2026-11-12T08:14:41.619Z] 
+[2026-11-12T08:14:41.619Z] #8 [stage-1 3/6] COPY --from=game /game/js/ /usr/share/nginx/html/js/
+[2026-11-12T08:14:41.619Z] #8 CACHED
+[2026-11-12T08:14:41.619Z] 
+[2026-11-12T08:14:41.619Z] #9 [game 1/1] ADD https://github.com/gabrielecirulli/2048.git#478b6ec346e3787f589e4af751378d06ded4cbbc /game
+[2026-11-12T08:14:41.619Z] #9 CACHED
+[2026-11-12T08:14:41.619Z] 
+[2026-11-12T08:14:41.619Z] #10 [stage-1 4/6] COPY --from=game /game/style/ /usr/share/nginx/html/style/
+[2026-11-12T08:14:41.619Z] #10 CACHED
+[2026-11-12T08:14:41.619Z] 
+[2026-11-12T08:14:41.619Z] #11 [stage-1 5/6] COPY --from=game /game/meta/ /usr/share/nginx/html/meta/
+[2026-11-12T08:14:41.619Z] #11 CACHED
+[2026-11-12T08:14:41.619Z] 
+[2026-11-12T08:14:41.619Z] #12 [stage-1 6/6] COPY nginx.conf /etc/nginx/nginx.conf.template
+[2026-11-12T08:14:41.619Z] #12 CACHED
+[2026-11-12T08:14:41.619Z] 
+[2026-11-12T08:14:41.619Z] #13 exporting to image
+[2026-11-12T08:14:41.619Z] #13 exporting layers done
+[2026-11-12T08:14:41.619Z] #13 exporting manifest sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae done
+[2026-11-12T08:14:41.619Z] #13 exporting config sha256:7c55352d3b8a9df54116f422e60aa4ecabe4b399361ce3817df19e8e1695ad89 done
+[2026-11-12T08:14:41.619Z] #13 naming to docker.io/library/concung-2048:b4996d3031048f4d2f41e57b52a143301cdf18fa done
+[2026-11-12T08:14:41.619Z] #13 unpacking to docker.io/library/concung-2048:b4996d3031048f4d2f41e57b52a143301cdf18fa done
+[2026-11-12T08:14:41.619Z] #13 DONE 0.0s
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] sh
+[2026-11-12T08:14:42.010Z] + sh tests/smoke.sh concung-2048:b4996d3031048f4d2f41e57b52a143301cdf18fa b4996d3031048f4d2f41e57b52a143301cdf18fa
+[2026-11-12T08:14:42.942Z] wget: server returned error: HTTP/1.1 403 Forbidden
+[2026-11-12T08:14:42.942Z] PASS: game, assets, license, health, revision and private path
+[Pipeline] sh
+[2026-11-12T08:14:43.808Z] + helm lint helm/demo -f environments/dev/values.json
+[2026-11-12T08:14:43.808Z] ==> Linting helm/demo
+[2026-11-12T08:14:43.808Z] [INFO] Chart.yaml: icon is recommended
+[2026-11-12T08:14:43.808Z] 
+[2026-11-12T08:14:43.808Z] 1 chart(s) linted, 0 chart(s) failed
+[2026-11-12T08:14:43.808Z] + helm template demo helm/demo -f environments/dev/values.json
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Load configuration & snapshot)
+Stage "Load configuration & snapshot" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Push image)
+Stage "Push image" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Update GitOps)
+Stage "Update GitOps" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Wait Argo CD & smoke test)
+[Pipeline] timeout
+[2026-11-12T08:14:44.272Z] Timeout set to expire in 5 min 0 sec
+[Pipeline] {
+[Pipeline] }
+[Pipeline] // timeout
+Stage "Wait Argo CD & smoke test" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+[2026-11-12T08:14:44.477Z] Checks passed; deployment is requested only when DEPLOY=true.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

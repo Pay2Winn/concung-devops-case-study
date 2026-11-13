@@ -1,0 +1,47 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "argoproj.io/v1alpha1",
+      "kind": "AppProject",
+      "metadata": {"name": "concung-demo", "namespace": "argocd"},
+      "spec": {
+        "sourceRepos": ["https://github.com/Pay2Winn/concung-devops-case-study.git"],
+        "destinations": [{"server": "https://kubernetes.default.svc", "namespace": "concung-demo"}],
+        "clusterResourceWhitelist": [],
+        "namespaceResourceWhitelist": [
+          {"group": "apps", "kind": "Deployment"},
+          {"group": "", "kind": "Service"},
+          {"group": "", "kind": "ConfigMap"}
+        ]
+      }
+    },
+    {
+      "apiVersion": "argoproj.io/v1alpha1",
+      "kind": "Application",
+      "metadata": {"name": "concung-demo", "namespace": "argocd"},
+      "spec": {
+        "project": "concung-demo",
+        "source": {
+          "repoURL": "https://github.com/Pay2Winn/concung-devops-case-study.git",
+          "targetRevision": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+          "path": "helm/demo",
+          "helm": {
+            "releaseName": "demo",
+            "valueFiles": ["../../environments/dev/values.json"],
+            "parameters": [
+              {"name": "image.repository", "value": "localhost:5001/concung-2048", "forceString": true},
+              {"name": "image.tag", "value": "b4996d303104", "forceString": true},
+              {"name": "image.digest", "value": "sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae", "forceString": true}
+            ]
+          }
+        },
+        "destination": {"server": "https://kubernetes.default.svc", "namespace": "concung-demo"},
+        "syncPolicy": {
+          "retry": {"limit": 3, "backoff": {"duration": "5s", "factor": 2, "maxDuration": "30s"}}
+        }
+      }
+    }
+  ]
+}

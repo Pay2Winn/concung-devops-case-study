@@ -1,0 +1,9 @@
+NAME                   READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS   IMAGES                                                                                                             SELECTOR
+deployment.apps/demo   2/2     2            2           7m42s   app          localhost:5001/concung-2048:b4996d303104@sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae   app.kubernetes.io/instance=demo
+
+NAME                       READY   STATUS    RESTARTS   AGE     IP           NODE                         NOMINATED NODE   READINESS GATES
+pod/demo-645b99874-b6fd4   1/1     Running   0          7m42s   10.244.0.5   concung-demo-control-plane   <none>           <none>
+pod/demo-645b99874-cmv68   1/1     Running   0          7m42s   10.244.0.6   concung-demo-control-plane   <none>           <none>
+
+NAME           TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE     SELECTOR
+service/demo   NodePort   10.96.48.185   <none>        80:30080/TCP   7m42s   app.kubernetes.io/instance=demo

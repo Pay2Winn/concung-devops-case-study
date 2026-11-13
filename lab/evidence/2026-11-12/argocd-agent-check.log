@@ -1,0 +1,8 @@
+{
+  "application": "concung-demo",
+  "sync": "Synced",
+  "health": "Healthy",
+  "revision": "b4996d3031048f4d2f41e57b52a143301cdf18fa"
+}
+
+PASS: actual Jenkins agent verified TLS, read-only Argo status before/after HTTP smoke, exact revision and game.

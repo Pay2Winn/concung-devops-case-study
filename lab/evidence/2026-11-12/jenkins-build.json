@@ -1,0 +1,115 @@
+{
+  "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+  "actions": [
+    {
+      "_class": "hudson.model.ParametersAction",
+      "parameters": [
+        {
+          "_class": "hudson.model.BooleanParameterValue",
+          "name": "DEPLOY",
+          "value": false
+        }
+      ]
+    },
+    {
+      "_class": "hudson.model.CauseAction",
+      "causes": [
+        {
+          "_class": "hudson.model.Cause$UserIdCause",
+          "shortDescription": "Started by user lab-admin",
+          "userId": "lab-admin",
+          "userName": "lab-admin"
+        }
+      ]
+    },
+    {
+      "_class": "jenkins.scm.api.SCMRevisionAction"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction"
+    },
+    {},
+    {
+      "_class": "hudson.plugins.git.util.BuildData",
+      "buildsByBranchName": {
+        "main": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 2,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+            "branch": [
+              {
+                "SHA1": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+                "name": "main"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+            "branch": [
+              {
+                "SHA1": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+                "name": "main"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision": {
+        "SHA1": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+        "branch": [
+          {
+            "SHA1": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+            "name": "main"
+          }
+        ]
+      },
+      "remoteUrls": [
+        "https://github.com/Pay2Winn/concung-devops-case-study.git"
+      ],
+      "scmName": ""
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.cps.EnvActionImpl"
+    },
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction"
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+    },
+    {},
+    {}
+  ],
+  "artifacts": [],
+  "building": false,
+  "description": null,
+  "displayName": "#2",
+  "duration": 7654,
+  "estimatedDuration": 20000,
+  "executor": null,
+  "fullDisplayName": "lab » case-study » main #2",
+  "id": "2",
+  "keepLog": false,
+  "number": 2,
+  "queueId": 5,
+  "result": "SUCCESS",
+  "timestamp": 1794471277097,
+  "url": "http://localhost:8081/job/lab/job/case-study/job/main/2/",
+  "changeSets": [],
+  "culprits": [],
+  "inProgress": false,
+  "nextBuild": null,
+  "previousBuild": {
+    "number": 1,
+    "url": "http://localhost:8081/job/lab/job/case-study/job/main/1/"
+  }
+}

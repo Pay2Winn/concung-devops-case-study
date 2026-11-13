@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-11-12T08:29:46.124Z",
+  "deployment": {
+    "name": "demo",
+    "readyReplicas": 2,
+    "availableReplicas": 2
+  },
+  "pods": [
+    {
+      "name": "demo-645b99874-b6fd4",
+      "phase": "Running",
+      "ready": true,
+      "restartCount": 0,
+      "image": "localhost:5001/concung-2048:b4996d303104@sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae",
+      "imageID": "localhost:5001/concung-2048@sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae",
+      "version": {
+        "revision": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+        "environment": "dev"
+      }
+    },
+    {
+      "name": "demo-645b99874-cmv68",
+      "phase": "Running",
+      "ready": true,
+      "restartCount": 0,
+      "image": "localhost:5001/concung-2048:b4996d303104@sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae",
+      "imageID": "localhost:5001/concung-2048@sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae",
+      "version": {
+        "revision": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+        "environment": "dev"
+      }
+    }
+  ],
+  "service": {
+    "type": "NodePort",
+    "nodePort": 30080
+  },
+  "http": {
+    "/health": {
+      "status": 200,
+      "body": {
+        "status": "ok"
+      }
+    },
+    "/version": {
+      "status": 200,
+      "body": {
+        "revision": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+        "environment": "dev"
+      }
+    },
+    "/.git/config": {
+      "status": 403
+    },
+    "/LICENSE.txt": {
+      "status": 200
+    }
+  }
+}

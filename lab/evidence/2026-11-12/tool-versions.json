@@ -1,0 +1,29 @@
+{
+  "recordedAt": "2026-11-12T08:03:52.643Z",
+  "jenkins": "2.580.2",
+  "dockerServer": "29.9.2",
+  "agentDocker": "27.5.1",
+  "agentBuildx": "github.com/docker/buildx v0.20.1 245093b99ab74aa2c729a496759afca0704d6470",
+  "agentHelm": "v3.17.3+ge4da497",
+  "kind": "kind v0.33.0 go1.26.7 windows/amd64",
+  "images": [
+    {
+      "id": "sha256:df32cf4c4c5af62d176618d92d8be5e00f2467d13905a3d405ea095f22b4aa5f",
+      "tags": [
+        "concung-jenkins-local:20261112"
+      ],
+      "repoDigests": [
+        "concung-jenkins-local@sha256:df32cf4c4c5af62d176618d92d8be5e00f2467d13905a3d405ea095f22b4aa5f"
+      ]
+    },
+    {
+      "id": "sha256:9667b8ae73ece2a167348fc2afe05366e9074a611837389ee5e02ee120e86ff0",
+      "tags": [
+        "concung-agent-local:20261112"
+      ],
+      "repoDigests": [
+        "concung-agent-local@sha256:9667b8ae73ece2a167348fc2afe05366e9074a611837389ee5e02ee120e86ff0"
+      ]
+    }
+  ]
+}

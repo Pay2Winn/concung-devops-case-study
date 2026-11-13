@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: concung-demo
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: concung-demo
+  namespace: argocd
+spec:
+  sourceRepos:
+    - https://github.com/Pay2Winn/concung-devops-case-study.git
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: concung-demo
+  clusterResourceWhitelist: []
+  namespaceResourceWhitelist:
+    - group: apps
+      kind: Deployment
+    - group: ""
+      kind: Service
+    - group: ""
+      kind: ConfigMap
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: concung-demo
+  namespace: argocd
+spec:
+  project: concung-demo
+  source:
+    repoURL: https://github.com/Pay2Winn/concung-devops-case-study.git
+    targetRevision: main
+    path: helm/demo
+    helm:
+      releaseName: demo
+      valueFiles:
+        - ../../environments/dev/values.json
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: concung-demo
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    retry:
+      limit: 3
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 30s

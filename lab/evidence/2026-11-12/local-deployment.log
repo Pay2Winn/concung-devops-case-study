@@ -1,0 +1,75 @@
+
+$ docker tag concung-2048:b4996d3031048f4d2f41e57b52a143301cdf18fa localhost:5001/concung-2048:b4996d303104
+
+$ docker push localhost:5001/concung-2048:b4996d303104
+The push refers to repository [localhost:5001/concung-2048]
+89fcb8c38289: Waiting
+163ee6b178c7: Waiting
+881fc932939e: Waiting
+52eb9c26a936: Waiting
+163ee6b178c7: Waiting
+881fc932939e: Waiting
+52eb9c26a936: Waiting
+89fcb8c38289: Waiting
+163ee6b178c7: Waiting
+881fc932939e: Waiting
+52eb9c26a936: Waiting
+89fcb8c38289: Waiting
+163ee6b178c7: Waiting
+881fc932939e: Waiting
+52eb9c26a936: Waiting
+89fcb8c38289: Waiting
+163ee6b178c7: Waiting
+881fc932939e: Waiting
+52eb9c26a936: Waiting
+89fcb8c38289: Waiting
+163ee6b178c7: Waiting
+881fc932939e: Waiting
+52eb9c26a936: Waiting
+89fcb8c38289: Waiting
+163ee6b178c7: Pushed
+c12ffff18732: Waiting
+0e13a8a92b02: Waiting
+9097cfae09a9: Waiting
+89fcb8c38289: Pushed
+881fc932939e: Pushed
+52eb9c26a936: Pushed
+c12ffff18732: Pushed
+0ecaee077528: Pushed
+0e13a8a92b02: Pushed
+d04b4ed66a45: Pushed
+6351c0d2a847: Pushed
+474ca3e39ede: Pushed
+9097cfae09a9: Pushed
+96e6ce3fd08f: Pushed
+4fd2a979a136: Pushed
+b4996d303104: digest: sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae size: 2756
+
+$ docker pull localhost:5001/concung-2048:b4996d303104
+b4996d303104: Pulling from concung-2048
+Digest: sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae
+Status: Image is up to date for localhost:5001/concung-2048:b4996d303104
+localhost:5001/concung-2048:b4996d303104
+
+$ docker exec -w /home/jenkins/agent/workspace/lab_case-study_main concung-local-agent-1 sh tests/smoke.sh localhost:5001/concung-2048:b4996d303104 b4996d3031048f4d2f41e57b52a143301cdf18fa
+wget: server returned error: HTTP/1.1 403 Forbidden
+PASS: game, assets, license, health, revision and private path
+
+$ helm lint <repository>/helm/demo -f <repository>/.runtime/e2e-2026-11-12-cfmNr0/helm-values.json
+==> Linting <repository>/helm/demo
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+
+$ helm upgrade --install demo <repository>/helm/demo --kubeconfig <repository>/.runtime/e2e-2026-11-12-cfmNr0/kubeconfig --kube-context kind-concung-demo --namespace concung-demo --create-namespace -f <repository>/.runtime/e2e-2026-11-12-cfmNr0/helm-values.json --wait --timeout 180s
+Release "demo" does not exist. Installing it now.
+NAME: demo
+LAST DEPLOYED: Thu Nov 12 15:22:04 2026
+NAMESPACE: concung-demo
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+
+$ kubectl --kubeconfig <repository>/.runtime/e2e-2026-11-12-cfmNr0/kubeconfig --context kind-concung-demo -n concung-demo rollout status deployment/demo --timeout=180s
+deployment "demo" successfully rolled out

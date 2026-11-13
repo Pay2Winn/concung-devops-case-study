@@ -1,0 +1,25 @@
+{
+  "recordedAt": "2026-11-12T08:26:25.412Z",
+  "url": "http://localhost:8083/",
+  "title": "2048",
+  "keyboardMoves": 20,
+  "before": {"score": 0, "tiles": 2},
+  "after": {"score": 76, "tiles": 9},
+  "stateChanged": true,
+  "http": {
+    "/health": {"status": 200, "body": {"status": "ok"}},
+    "/version": {"status": 200, "body": {"revision": "b4996d3031048f4d2f41e57b52a143301cdf18fa", "environment": "dev"}},
+    "/.git/config": {"status": 403},
+    "/LICENSE.txt": {"status": 200},
+    "/js/application.js": {"status": 200},
+    "/style/main.css": {"status": 200}
+  },
+  "mobile": {
+    "viewportWidth": 390,
+    "documentWidth": 375,
+    "noHorizontalOverflow": true,
+    "tilesWithinBoardAfterReload": true,
+    "scoreAfterReload": 76,
+    "scope": "Layout and persistence after reload; touch gestures not tested"
+  }
+}

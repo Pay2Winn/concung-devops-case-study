@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-11-12T09:19:00.894Z",
+  "container": "concung-local-agent-1",
+  "method": "docker exec of equivalent Jenkins wait/verify shell; not a Jenkins pipeline deploy",
+  "server": "concung-demo-control-plane:30443",
+  "certificateVerified": true,
+  "readOnlyAccount": "jenkins",
+  "revision": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+  "statusBeforeAndAfterSmoke": "Synced/Healthy",
+  "versionMatches": true,
+  "gameContains2048": true,
+  "temporaryCredentialsRemoved": true,
+  "exitCode": 0
+}

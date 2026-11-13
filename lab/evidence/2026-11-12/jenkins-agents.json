@@ -1,0 +1,17 @@
+{
+  "_class": "hudson.model.ComputerSet",
+  "computer": [
+    {
+      "_class": "hudson.model.Hudson$MasterComputer",
+      "displayName": "Built-In Node",
+      "numExecutors": 0,
+      "offline": false
+    },
+    {
+      "_class": "hudson.slaves.SlaveComputer",
+      "displayName": "docker-agent",
+      "numExecutors": 1,
+      "offline": false
+    }
+  ]
+}

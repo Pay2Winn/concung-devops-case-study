@@ -1,0 +1,7 @@
+{
+  "image": {
+    "repository": "localhost:5001/concung-2048",
+    "tag": "000000000000",
+    "digest": ""
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "checkedAt": "2026-11-12T09:15:24.015Z",
+  "method": "Independent local Argo CD sync with explicit Helm parameter overrides; not Jenkins DEPLOY=true",
+  "sourceRevision": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+  "imageDigest": "sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae",
+  "application": {
+    "name": "concung-demo",
+    "project": "concung-demo",
+    "source": {
+      "repoURL": "https://github.com/Pay2Winn/concung-devops-case-study.git",
+      "path": "helm/demo",
+      "targetRevision": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+      "helm": {
+        "valueFiles": [
+          "../../environments/dev/values.json"
+        ],
+        "parameters": [
+          {
+            "name": "image.repository",
+            "value": "localhost:5001/concung-2048",
+            "forceString": true
+          },
+          {
+            "name": "image.tag",
+            "value": "b4996d303104",
+            "forceString": true
+          },
+          {
+            "name": "image.digest",
+            "value": "sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae",
+            "forceString": true
+          }
+        ],
+        "releaseName": "demo"
+      }
+    },
+    "sync": "Synced",
+    "health": "Healthy",
+    "syncRevision": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+    "operationPhase": "Succeeded",
+    "operationRevision": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+    "resources": [
+      {
+        "version": "v1",
+        "kind": "ConfigMap",
+        "namespace": "concung-demo",
+        "name": "demo",
+        "status": "Synced"
+      },
+      {
+        "version": "v1",
+        "kind": "Service",
+        "namespace": "concung-demo",
+        "name": "demo",
+        "status": "Synced",
+        "health": {
+          "status": "Healthy"
+        }
+      },
+      {
+        "group": "apps",
+        "version": "v1",
+        "kind": "Deployment",
+        "namespace": "concung-demo",
+        "name": "demo",
+        "status": "Synced",
+        "health": {
+          "status": "Healthy"
+        }
+      }
+    ]
+  },
+  "resourceIdentities": [
+    {
+      "kind": "Deployment",
+      "name": "demo",
+      "uid": "b5101d72-66cf-4bc4-ae86-706061c0acbf",
+      "preserved": true,
+      "tracking": "concung-demo:apps/Deployment:concung-demo/demo"
+    },
+    {
+      "kind": "Service",
+      "name": "demo",
+      "uid": "3e43d8ed-fc66-4e1a-b04e-25c37611cc43",
+      "preserved": true,
+      "tracking": "concung-demo:/Service:concung-demo/demo"
+    },
+    {
+      "kind": "ConfigMap",
+      "name": "demo",
+      "uid": "3aeebfca-97c8-4184-9430-8cc2371458f4",
+      "preserved": true,
+      "tracking": "concung-demo:/ConfigMap:concung-demo/demo"
+    }
+  ],
+  "pods": [
+    {
+      "name": "demo-645b99874-b6fd4",
+      "ready": true,
+      "restartCount": 0,
+      "imageID": "localhost:5001/concung-2048@sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae"
+    },
+    {
+      "name": "demo-645b99874-cmv68",
+      "ready": true,
+      "restartCount": 0,
+      "imageID": "localhost:5001/concung-2048@sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae"
+    }
+  ],
+  "http": {
+    "version": {
+      "revision": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+      "environment": "dev"
+    },
+    "healthStatus": 200
+  },
+  "permissions": {
+    "get:concung-demo/concung-demo": "yes",
+    "sync:concung-demo/concung-demo": "no",
+    "update:concung-demo/concung-demo": "no",
+    "delete:concung-demo/concung-demo": "no",
+    "get:default/unrelated": "no"
+  },
+  "tlsVerified": true,
+  "githubWrite": false,
+  "helmOperationsFrozen": true
+}

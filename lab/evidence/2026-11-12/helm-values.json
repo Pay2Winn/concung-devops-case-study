@@ -1,0 +1,11 @@
+{
+  "replicaCount": 2,
+  "image": {
+    "repository": "localhost:5001/concung-2048",
+    "tag": "b4996d303104",
+    "digest": "sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae"
+  },
+  "config": {
+    "APP_ENV": "dev"
+  }
+}

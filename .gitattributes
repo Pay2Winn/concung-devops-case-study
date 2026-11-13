@@ -1,0 +1,2 @@
+# Evidence checksums cover exact bytes; do not convert line endings on checkout.
+lab/evidence/** -text

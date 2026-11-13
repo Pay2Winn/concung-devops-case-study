@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-11-12T09:03:45.021Z",
+  "version": {
+    "Version": "v3.6.1"
+  },
+  "tls": {
+    "verified": true,
+    "hostname": "localhost",
+    "certificateAuthority": "private local lab CA",
+    "bypassUsed": false
+  },
+  "account": "jenkins",
+  "expiresAt": "2026-11-12T11:03:44.000Z",
+  "lifetimeSeconds": 7200,
+  "permissions": {
+    "get:concung-demo/concung-demo": "yes",
+    "sync:concung-demo/concung-demo": "no",
+    "get:default/unrelated": "no"
+  },
+  "tokensIncluded": false
+}

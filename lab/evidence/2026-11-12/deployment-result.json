@@ -1,0 +1,11 @@
+{
+  "recordedAt": "2026-11-12T08:22:15.421Z",
+  "method": "Manual Helm; not Jenkins deploy",
+  "jenkinsBuild": 2,
+  "sourceRevision": "b4996d3031048f4d2f41e57b52a143301cdf18fa",
+  "image": "localhost:5001/concung-2048:b4996d303104",
+  "digest": "sha256:d3a1458514a94adfdf2226806be67baa822bef7324bd1472e29efde8a449c6ae",
+  "context": "kind-concung-demo",
+  "namespace": "concung-demo",
+  "release": "demo"
+}
